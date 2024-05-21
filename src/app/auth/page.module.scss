@@ -1,0 +1,66 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(13, 1, 23, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 70px;
+    min-width: 350px;
+    min-height: 350px;
+    border-radius: 5px;
+    border: 1px solid rgba(218, 211, 236, .3);
+    & > h1 {
+      font-size: 45px;
+      font-weight: 600;
+      color: rgb(218, 211, 236);
+      margin-bottom: 25px;
+    }
+    & > input {
+      border: none;
+      width: 100%;
+      padding-block: 20px;
+      padding-inline: 20px;
+      box-sizing: border-box;
+      border-radius: 3px;
+      background-color: rgba(250, 250, 250, 0.05);
+      outline: none;
+      color: rgba(218, 211, 236, .8);
+      &:focus {
+        border: 1px solid rgba(218, 211, 236, .5);
+      }
+      &:first-of-type {
+        margin-bottom: 10px;
+      }
+      &:nth-of-type(3) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+    & > button {
+      width: 100%;
+      padding-block: 20px;
+      border-radius: 5px;
+      border: none;
+      margin-top: 10px;
+      background-color: rgb(218, 211, 236);
+      font-size: 16px;
+      cursor: pointer;
+      &:hover {
+        background-color: rgb(236, 230, 248);
+      }
+    }
+    & > a {
+      font-size: 14px;
+      font-weight: 300;
+      margin-top: 25px;
+      color: rgb(218, 211, 236, .8);
+    }
+  }
+}

@@ -1,0 +1,37 @@
+import React from 'react';
+import styles from './itineraryItem.module.scss';
+import {FaTrashCan} from "react-icons/fa6";
+import Link from "next/link";
+import deleteItinerary from "@/api/deleteItinerary";
+
+function ItineraryItem({id, number, location}:{id: string, number:number, location:string}) {
+    return (
+        <Link href={`/itinerary/${id}`} passHref={true} legacyBehavior={true}>
+            <div className={styles.container}>
+                <div className={styles.label}>
+                    <h2>ITINERARY {number}</h2>
+                    <h1>{location}</h1>
+                </div>
+                <button onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    let username = localStorage.getItem("username");
+                    if (!username){
+                        return
+                    }
+                    deleteItinerary(username, id).then(r => {
+                        if (r) {
+                            window.location.reload();
+                        } else {
+                            alert("Failed to delete")
+                        }
+                    })
+                }}>
+                    <FaTrashCan/>
+                </button>
+            </div>
+        </Link>
+    );
+}
+
+export default ItineraryItem;
